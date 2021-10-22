@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
-function App() {
+const App = () => {
+  const [name, setName] = useState('Paul');
+  const [age, setAge] = useState(90);
+  const [bg, setBg] = useState('#ff0000');
+
+  const handleClick = () => {
+    setBg('blue');
+  }
+
+  const handle20 = () => {
+    setAge(20);
+  }
+  const handle90 = () => {
+    setAge(90);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Now
-        </a>
-      </header>
-    </div>
-  );
-}
+      <div style={{backgroundColor: bg}}>
+      <Header name={name} age={age}/>
+      
+      área principal da página 
 
+
+    <button onClick={handleClick}>Clique Aqui</button>
+    <button onClick={handle20}>Idade 20</button>
+    <button onClick={handle90}>Idade 90</button>
+
+
+      <Footer />
+      </div>
+    )
+}
 export default App;
